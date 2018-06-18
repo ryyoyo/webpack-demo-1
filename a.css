@@ -1,9 +1,17 @@
 @import url(./b.css);
 .topNavBar{
-    padding: 20px 16px;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.topNavBar-inner{
+    padding: 0 16px;
 }
 .topNavBar nav{
     padding-top: 7px;
+    float: right;
 }
 .topNavBar nav ul{
     list-style: none;
@@ -30,6 +38,7 @@
     padding-bottom: 4px;
     font-size: 24px;
     font-family: "Arial Black";
+    float: left;
 }
 .topNavBar .logo .rs{
     margin-right: 4px;
@@ -37,4 +46,168 @@
 }
 .topNavBar .logo .card{
     color: #9b9ca2;
+}
+.banner{
+    height: 515px;
+    background-image:url(./img/rs-cover.jpg);
+    background-position: center center;
+    background-size:cover;
+}
+.banner .mask{
+    height: 515px;
+    background: rgba(0,0,0,0.8);
+}
+.userCard{
+    border: 1px solid red;
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff url();
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+}
+.userCard .welcome{
+    position: relative;
+    background: #d86f6c;
+    color: #fff;
+    padding: 4px 16px;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+/*三角形*/
+.userCard .welcome .triangle{
+    display: block;
+    border: 10px solid transparent;
+    width: 0px;
+    border-left-color: #e6686a;
+    border-top-width: 0px;
+    position: absolute;
+    left: 4px;
+    top: 100%;
+}
+.userCard .picture{
+    float: left;
+}
+.userCard .text{
+    float: left;
+    margin-left: 65px;
+    width: 470px;
+}
+.userCard .text h1{
+    margin-top: 32px;
+}
+.userCard .text hr{
+    margin: 20px 0;
+}
+.userCard .pictureAndText{
+    padding: 50px;
+}
+.userCard dl dt,
+.userCard dl dd{
+    float: left;
+    padding: 5px 0;
+}
+.userCard dl dt{
+    width: 30%;
+    font-weight: bold;
+}
+.userCard dl dd{
+    width: 70%;
+    color: #9da0a7;
+}
+.userCard .media{
+    background: #e6686a;
+    text-align: center;
+}
+.userCard .media a{
+    display: inline-block;
+    border-radius: 50%;
+    width: 40px;
+    padding: 5px 0;
+    line-height: 30px;
+    margin: 16px;
+}
+.userCard .media a:hover{
+    background: #cf5d5f;
+}
+.userCard svg{
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+    /*margin: 0 16px;*/
+    vertical-align: top;
+}
+body main {
+    margin-top: -340px;
+}
+body main .downloadResume-wrapper{
+    text-align: center;
+}
+body main .downloadResume{
+    font-size: 14px;
+    line-height: 16px;
+    padding: 21px 55px;
+    display: inline-block;
+    border: 1px solid #cdcfd1;
+    background: #efefef;
+    border-radius: 2px;
+    color: #3d4451;
+    font-weight: bold;
+    margin: 32px 0;
+    transition: box-shadow 0.3s;
+}
+body main .downloadResume:hover{
+    box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.5);
+}
+.selfIntroduction{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: kai;
+    line-height: 1.8;
+    font-size: 18px;
+}
+.skills{
+    margin-top: 60px;
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.skills h2{
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+.skills h3{
+    font-size: 14px;
+    line-height: 1.1;
+    padding-right: 40px;
+}
+.skills ol{
+    background: #fff;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+    padding: 42px 50px 10px;
+    margin-top: 30px;
+}
+.skills ol li{
+    float: left;
+    width: 48%;
+    box-sizing: border-box;
+}
+.skills ol li:nth-child(even){
+    float: right;
+}
+.skills .progressBar{
+    height: 5px;
+    background: #fae1e1;
+    border-radius: 2px;
+    margin: 4px 0 40px;
+}
+.skills .progressBar .progress{
+    height: 100%;
+    background: #e6686a;
+    width: 70%;
+    border-radius: 2px;
 }
