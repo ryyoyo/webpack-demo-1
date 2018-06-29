@@ -18,7 +18,8 @@
     <div class ="topNavBar">
         <div class="topNavBar-inner  clearfix ">
             <a class="logo" href="#" alt="logo">
-                <span class="rs">RS</span><span class="card">card</span> <!--span 和 span 如果换行，那么之间有一个空格-->
+                <span class="rs">RS</span><span class="card">card</span>
+                <!--span 和 span 如果换行，那么之间有一个空格-->
             </a>
             <nav>
                 <ul class="clearfix">
@@ -146,19 +147,40 @@
                 </li>
             </ol>
     </section>
-    <section>
+    <section class="portfolio">
             <h2>作品集</h2>
             <nav>
                 <ol>
-                    <li>所有</li>
-                    <li>框架</li>
-                    <li>原声JS &amp; CSS</li>
+                    <li id="portfolio1">所有</li>
+                    <li id="portfolio2">框架</li>
+                    <li id="portfolio3">原生JS &amp; CSS</li>
                 </ol>
+                <div id="portfolioBar" class="bar state-3">
+                    <div class="bar-inner"></div>
+                </div>
             </nav>
-            <div class="jobs">
-                <div class="big"></div>
-                <div class="small"></div>
-                <div class="small"></div>
+            <script type="text/javascript">
+                portfolio1.onclick = function(){
+                    portfolioBar.className = " bar state-1"
+                }
+                portfolio2.onclick = function(){
+                    portfolioBar.className = " bar state-2"
+                }
+                portfolio3.onclick = function(){
+                    portfolioBar.className = " bar state-3"
+                }
+            </script>
+
+            <div class="works" style="height: 597px">
+                <div class="big" style="top:0; left: 0;" >
+                    <img src="img/1.jpg" style="width: 606px; height:597px;">
+                </div>
+                <div class="small" style=" top:0; left: 645px;" >
+                    <img src="img/2.jpg" style="width: 293px; height: 270px;">
+                </div>
+                <div class="small" style=" top:327px; left: 645px;" >
+                    <img src="img/3.jpg" style="width: 293px; height: 270px;">
+                </div>
             </div>
     </section>
 </body>

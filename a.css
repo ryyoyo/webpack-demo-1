@@ -167,13 +167,16 @@ body main .downloadResume:hover{
     line-height: 1.8;
     font-size: 18px;
 }
-.skills{
+.skills,
+.portfolio{
     margin-top: 60px;
     max-width: 940px;
     margin-left: auto;
     margin-right: auto;
 }
-.skills h2{
+.skills h2,
+.portfolio h2
+{
     text-align: center;
     color: #3d4451;
     font-size: 34px;
@@ -210,4 +213,59 @@ body main .downloadResume:hover{
     background: #e6686a;
     width: 70%;
     border-radius: 2px;
+}
+.portfolio{
+    text-align: center;
+    margin-bottom: 100px;
+}
+.portfolio nav{
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 32px;
+}
+.portfolio nav ol{
+    display: inline-block;
+    margin: 0 auto;
+    vertical-align: top;
+}
+.portfolio nav ol li{
+    float: left;
+    margin-left: 40px;
+    cursor: pointer;
+}
+.portfolio nav ol li:nth-child(1){
+    margin-left: 0;
+}
+.portfolio nav .bar{
+    height: 5px;
+    background: #fff;
+    margin-top: 5px;
+    border-radius: 2px;
+    margin-bottom: 30px;
+}
+.portfolio nav .bar-inner{
+    height: 100%;
+    background: #e6686a;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+.portfolio nav .state-1 .bar-inner {
+    width: 30px;
+    margin-left: 0;
+}
+.portfolio nav .state-2 .bar-inner{
+    width: 50px;
+    margin-left: 65px;
+}
+.portfolio nav .state-3 .bar-inner{
+    width: 100px;
+    margin-left: 150px;
+}
+.portfolio .works{
+    position: relative;
+}
+.portfolio .works > .big,
+.portfolio .works > .small{
+    position: absolute;
 }
