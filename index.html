@@ -4,6 +4,7 @@
 <head>
     <title>我的网页</title>
     <link rel="stylesheet" href="./a.css">
+    <link rel="stylesheet" href="./loading.css">
     <script type="text/javascript" src="//at.alicdn.com/t/font_705666_9t8hgmqxygu.js"></script>
     <style type="text/css">
     .icon {
@@ -12,9 +13,27 @@
        fill: currentColor;
        overflow: hidden;
     }
+    .wel{
+        display: none;
+        position: fixed;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #999;
+        z-index: 1;
+        justify-content: center;
+        align-items: center;
+    }
+    .wel.active{
+        display: flex;
+    }
 </style>
 </head>
 <body>
+    <div id="wel" class="wel active">
+        <div class="loading"></div>
+    </div>
     <div class ="topNavBar">
         <div class="topNavBar-inner  clearfix ">
             <a class="logo" href="#" alt="logo">
@@ -183,5 +202,8 @@
                 </div>
             </div>
     </section>
+    <script type="text/javascript">
+        wel.classList.remove('active')
+    </script>
 </body>
 </html>
