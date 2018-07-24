@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./a.css">
     <link rel="stylesheet" href="./loading.css">
     <script type="text/javascript" src="//at.alicdn.com/t/font_705666_9t8hgmqxygu.js"></script>
+
     <style type="text/css">
     .icon {
        width: 1em; height: 1em;
@@ -31,9 +32,9 @@
 </style>
 </head>
 <body>
-    <div id="wel" class="wel active">
+    <!-- <div id="wel" class="wel active">
         <div class="loading"></div>
-    </div>
+    </div> -->
     <div id="topNavBar" class ="topNavBar">
         <div class="topNavBar-inner  clearfix ">
             <a class="logo" href="#" alt="logo">
@@ -51,14 +52,14 @@
                             <li>作品3</li>
                         </ul>
                     </li>
-                    <li><a href="#siteBlog">博客</a>
+                    <li><a href="#">博客</a>
                         <ul class="submenu">
                             <li>博客1</li>
                             <li>博客2</li>
                             <li>博客3</li>
                         </ul>
                     </li>
-                    <li><a href="#site">日历</a></li>
+                    <li><a href="#">日历</a></li>
                     <li><a href="#">联系方式</a></li>
                     <li><a href="#">其他</a></li>
                 </ul>
@@ -69,7 +70,7 @@
         <div class="mask"></div>
     </div>
     <main>
-        <div id="siteAbout" class="userCard">
+        <div data-x id="siteAbout" class="userCard">
             <div class="pictureAndText clearfix">
                 <div class="picture">
                     <img src="img/avatar.jpg" width="299" height="347"="头像">
@@ -128,7 +129,7 @@
             前端开发工程师前端开发工程师前端开发工程师前端开发工程师前端开前端开发工程师前端开发工程师前端开发工程师前端开发工程师前端开前端开发工程师前端开发工程师前端开发工程师前端开发工程师前端开前端开发工程师
         </p>
     </main>
-    <section id="siteSkills" class="skills">
+    <section data-x id="siteSkills" class="skills">
             <h2>技能</h2>
             <ol class="clearfix">
                 <li>
@@ -175,7 +176,7 @@
                 </li>
             </ol>
     </section>
-    <section id="siteWroks" class="portfolio">
+    <section data-x id="siteWroks" class="portfolio">
             <h2>作品集</h2>
             <nav>
                 <ol>
@@ -211,17 +212,50 @@
                 </div>
             </div>
     </section>
-    <script type="text/javascript">
-        setTimeout(function(){
-            wel.classList.remove('active')
-        },1000)
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
+    <script type="text/javascript">
+        // setTimeout(function(){
+        //     wel.classList.remove('active')
+        // },100)
+
+        let specialTags = document.querySelectorAll('[data-x]')
+        for(var i = 0; i < specialTags.length; i++){
+            // if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+            //     minIndex = i
+            specialTags[i].classList.add('offset')
+            }
+
+        setTimeout(function(){
+            findClosest()
+        },100)
         window.onscroll = function(){
             if(window.scrollY > 0){
                 topNavBar.classList.add('sticky')
             }else{
                 topNavBar.classList.remove('sticky')
             }
+            findClosest()
+        }
+
+        function findClosest(){
+            let specialTags = document.querySelectorAll('[data-x]')
+            let minIndex = 0
+            for(var i = 0; i < specialTags.length; i++){
+                if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[   minIndex].offsetTop - window.scrollY)){
+                    minIndex = i
+                }
+            }
+            //minIndex 就是离窗口顶部最近的元素
+            specialTags[minIndex].classList.remove('offset')
+            let id = specialTags[minIndex].id
+            let a = document.querySelector('a[href="#'+ id +'"]')
+            let li = a.parentNode
+            let allBrothers = li.parentNode.children
+            for(var i = 0; i < allBrothers.length; i++){
+                allBrothers[i].classList.remove('highlight')
+            }
+            li.classList.add('highlight')
         }
 
         let liTags = document.querySelectorAll('nav > ul > li')//返回与指定的选择器组匹配的文档中的元素列表
@@ -234,6 +268,15 @@
                 }
             }
         let aTags = document.querySelectorAll('nav > ul > li > a')
+
+
+        function animate(time) {
+            requestAnimationFrame(animate);
+            TWEEN.update(time);
+        }
+        requestAnimationFrame(animate);
+
+
         for(var i = 0;i < aTags.length; i++){
             aTags[i].onclick = function(x){
                 x.preventDefault()//组织默认动作，组织 a 标签跳转
@@ -241,7 +284,21 @@
                 let href = a.getAttribute('href')//'#siteAbout'
                 let element = document.querySelector(href)//id 为 siteAbout 的元素
                 let top = element.offsetTop
-                window.scrollTo(0, top - 80)//x方向不变，y方向距离顶部 减 80
+
+
+                let currentTop = window.scrollY//当前的距离
+                let targetTop = top - 80//目标距离
+                let s = targetTop - currentTop
+                var coords = {y: currentTop};
+                var t = Math.abs((s/100)*300)
+                if(t > 500){t = 500}
+                var tween = new TWEEN.Tween(coords)
+                    .to({y: targetTop}, t)
+                    .easing(TWEEN.Easing.Quadratic.InOut)
+                    .onUpdate(function() {
+                        window.scrollTo(0, coords.y)
+                    })
+                    .start();
             }
         }
     </script>
