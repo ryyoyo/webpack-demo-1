@@ -34,24 +34,33 @@
     <div id="wel" class="wel active">
         <div class="loading"></div>
     </div>
-    <div class ="topNavBar">
+    <div id="topNavBar" class ="topNavBar">
         <div class="topNavBar-inner  clearfix ">
             <a class="logo" href="#" alt="logo">
                 <span class="rs">RS</span><span class="card">card</span>
                 <!--span 和 span 如果换行，那么之间有一个空格-->
             </a>
-            <nav>
+            <nav class="menu">
                 <ul class="clearfix">
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">SKILLS</a></li>
-                    <li><a href="#">PORTFOLIO</a></li>
-                    <li><a href="#">EXPERIENCE</a></li>
-                    <li><a href="#">PRICING</a></li>
-                    <li><a href="#">BLOG</a></li>
-                    <li><a href="#">CALENDAR</a></li>
-                    <li><a href="#">CONTACT</a></li>
-                    <li><a href="#">OTHER</a></li>
-                    <li><a href="#">ALL DEMOS</a></li>
+                    <li><a href="#siteAbout">关于</a></li>
+                    <li><a href="#siteSkills">技能</a></li>
+                    <li><a href="#siteWroks">作品</a>
+                        <ul class="submenu">
+                            <li>作品1</li>
+                            <li>作品2</li>
+                            <li>作品3</li>
+                        </ul>
+                    </li>
+                    <li><a href="#siteBlog">博客</a>
+                        <ul class="submenu">
+                            <li>博客1</li>
+                            <li>博客2</li>
+                            <li>博客3</li>
+                        </ul>
+                    </li>
+                    <li><a href="#site">日历</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">其他</a></li>
                 </ul>
             </nav>
         </div>
@@ -60,7 +69,7 @@
         <div class="mask"></div>
     </div>
     <main>
-        <div class="userCard">
+        <div id="siteAbout" class="userCard">
             <div class="pictureAndText clearfix">
                 <div class="picture">
                     <img src="img/avatar.jpg" width="299" height="347"="头像">
@@ -119,7 +128,7 @@
             前端开发工程师前端开发工程师前端开发工程师前端开发工程师前端开前端开发工程师前端开发工程师前端开发工程师前端开发工程师前端开前端开发工程师前端开发工程师前端开发工程师前端开发工程师前端开前端开发工程师
         </p>
     </main>
-    <section class="skills">
+    <section id="siteSkills" class="skills">
             <h2>技能</h2>
             <ol class="clearfix">
                 <li>
@@ -166,7 +175,7 @@
                 </li>
             </ol>
     </section>
-    <section class="portfolio">
+    <section id="siteWroks" class="portfolio">
             <h2>作品集</h2>
             <nav>
                 <ol>
@@ -203,7 +212,38 @@
             </div>
     </section>
     <script type="text/javascript">
-        wel.classList.remove('active')
+        setTimeout(function(){
+            wel.classList.remove('active')
+        },1000)
+
+        window.onscroll = function(){
+            if(window.scrollY > 0){
+                topNavBar.classList.add('sticky')
+            }else{
+                topNavBar.classList.remove('sticky')
+            }
+        }
+
+        let liTags = document.querySelectorAll('nav > ul > li')//返回与指定的选择器组匹配的文档中的元素列表
+            for(let i = 0;i < liTags.length; i++){
+                liTags[i].onmouseenter = function(x){
+                    x.currentTarget.classList.add('active')
+                }
+                    liTags[i].onmouseleave = function(x){
+                    x.currentTarget.classList.remove('active')
+                }
+            }
+        let aTags = document.querySelectorAll('nav > ul > li > a')
+        for(var i = 0;i < aTags.length; i++){
+            aTags[i].onclick = function(x){
+                x.preventDefault()//组织默认动作，组织 a 标签跳转
+                let a = x.currentTarget
+                let href = a.getAttribute('href')//'#siteAbout'
+                let element = document.querySelector(href)//id 为 siteAbout 的元素
+                let top = element.offsetTop
+                window.scrollTo(0, top - 80)//x方向不变，y方向距离顶部 减 80
+            }
+        }
     </script>
 </body>
 </html>
