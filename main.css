@@ -7,6 +7,9 @@
     0%{transform: translateY(-30px);}
     100%{transform: translateY(0px);}
 }
+/*.wel{display: none;position: fixed;top:0;left: 0;width: 100%;height: 100%;background: #999;z-index: 1;justify-content: center;align-items: center;}*/
+/*.wel.active{display: flex;}*/
+.icon {width: 1em; height: 1em;vertical-align: -0.15em;fill: currentColor;overflow: hidden;}
 .topNavBar{color:#b7b7b7;padding:20px 0;position:fixed;top:0;left:0;width:100%;transition: all 0.3s}
 .topNavBar.sticky{background: #fff;padding: 10px 0;z-index: 1;box-shadow: 0 0 10px rgba(0,0,0,0.3);color: #3d4451;}
 .topNavBar-inner{padding:0 16px;}
@@ -62,8 +65,9 @@ body main .downloadResume:hover{box-shadow:0px 4px 13px 0px rgba(0,0,0,0.5);}
 .skills .progressBar{height:5px;background:#fae1e1;border-radius:2px;margin:4px 0 40px;overflow: hidden;}
 .skills .progressBar .progress{height:100%;background:#e6686a;width:70%;border-radius:2px;transform: translateX(0%);transition: all 1s;}
 .skills.offset .progress{transform: translateX(-100%);}
-.portfolio{text-align:center;margin-bottom:100px;}
-.portfolio nav{text-align:center;display:inline-block;vertical-align:top;margin-top:32px;}
+.portfolio{text-align:center;margin-bottom:100px;max-width: 720px;}
+.portfolio h2{margin-bottom:32px;}
+/*.portfolio nav{text-align:center;display:inline-block;vertical-align:top;margin-top:32px;}
 .portfolio nav ol{display:inline-block;margin:0 auto;vertical-align:top;}
 .portfolio nav ol li{float:left;margin-left:40px;cursor:pointer;}
 .portfolio nav ol li:nth-child(1){margin-left:0;}
@@ -73,4 +77,7 @@ body main .downloadResume:hover{box-shadow:0px 4px 13px 0px rgba(0,0,0,0.5);}
 .portfolio nav .state-2 .bar-inner{width:50px;margin-left:65px;}
 .portfolio nav .state-3 .bar-inner{width:100px;margin-left:150px;}
 .portfolio .works{position:relative;}
-.portfolio .works > .big,.portfolio .works > .small{position:absolute;}
+.portfolio .works > .big,.portfolio .works > .small{position:absolute;}*/
+.portfolio .swiper-container {width: 668px;height: 501px;background: #fff;}
+.portfolio .swiper-button-prev{background-color: #fff;width:64px;height: 64px;right: 100%;left: auto;border-radius: 50%;}
+.portfolio .swiper-button-next{background-color: #fff;width:64px;height: 64px;right: auto;left: 100%;border-radius: 50%;}

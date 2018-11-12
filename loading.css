@@ -19,7 +19,7 @@
 }
 .loading::after{
   content: '';
-  animation-delay: 0.75s; 
+  animation-delay: 0.75s;
 }
 @keyframes s{
   0%{
@@ -28,7 +28,7 @@
     opacity: 1;
   }
   100%{
-    width: 100px;    
+    width: 100px;
     height: 100px;
     opacity: 0;
   }
@@ -36,4 +36,3 @@
 
 
 
-                    while(brother.tagName.toLowerCase() !== 'ul'){
