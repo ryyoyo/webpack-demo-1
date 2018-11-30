@@ -53,9 +53,9 @@
 		},
 		//bindEvents 除了绑定事件，其他事情不应该做
 		bindEvents: function(){
-			this.form.addEventListener('submit', function(e){
+			this.form.addEventListener('submit', (e) => {
 				e.preventDefault()
-				controller.saveMessage()
+				this.saveMessage()
 			})
 		},
 		saveMessage: function(){
